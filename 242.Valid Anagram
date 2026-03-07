@@ -1,0 +1,22 @@
+class Solution {
+    public boolean isAnagram(String s, String t) {
+      if(s.length()!=t.length()){
+        return false;
+      }
+      int count[] = new int[26];
+      for(int i =0 ;i<s.length();i++){
+        count[s.charAt(i)-'a']++; //- a beacuse to convert in asci so that it would get
+                                  //numbered till 26
+      }
+     for(int i =0 ;i<t.length();i++){
+        count[t.charAt(i)-'a']--;
+      }
+      for(int i=0;i<s.length();i++){
+        if(count[s.charAt(i)-'a']!=count[t.charAt(i)-'a']){
+            return false;
+        }
+      }
+      return true;
+
+    }
+}
